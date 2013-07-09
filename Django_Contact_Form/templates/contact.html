@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Contact Us</h1>
+
+<form action="/contact/" method="post">i
+
+{% csrf_token %}
+
+<!--
+** USE THIS METHOD IF YOU DONT WANT TO CHANGE THE FORM
+{{ form.as_p }}
+
+<input type="submit" value="Submit" />
+</form>
+
+-->
+
+<p><label for="id_subject">Subject:</label>
+    <input id="id_subject" type="text" name="subject" maxlength="100" /></p>
+
+<p><label for="id_sender">Your email:</label>
+    <input type="email"  name="sender" id="id_sender" /></p>
+
+<p><label for="id_message">Message:</label>
+    <textarea name="message" rows="8" cols="37"></textarea>
+
+<p><label for="id_cc_myself">Cc myself:</label>
+    <input type="checkbox" name="cc_myself" id="id_cc_myself" /></p>
+
+<input type="submit" value="Submit" />
+</form>
+
+{% if form.errors %} 
+<p style="color: red;"> 
+Please correct the error{{ form.errors|pluralize }} above. 
+</p> 
+{% endif %} 
+
+
+{% endblock %}
