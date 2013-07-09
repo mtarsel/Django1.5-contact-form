@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.conf import settings
 
 from contact.forms import * 
 
@@ -13,7 +14,7 @@ def contact(request):
 	    sender = form.cleaned_data['sender']
 	    cc_myself = form.cleaned_data['cc_myself']
 
-	    recipients = ['your_email@address.com']
+	    recipients = settings.RECIPIENTS
 	    if cc_myself:
 	        recipients.append(sender)
 
@@ -26,4 +27,5 @@ def contact(request):
     else:
         form = ContactForm() # An unbound form
 
+    # ?? wtf, shouldn't be an absolute directory
     return render(request, '/absolute/direcotry/to/contact.html', {'form': form})
