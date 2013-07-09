@@ -7,6 +7,8 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+RECIPIENTS = ['your_email@address.com']
+
 MANAGERS = ADMINS
 
 DATABASES = {
