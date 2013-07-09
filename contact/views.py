@@ -27,4 +27,5 @@ def contact(request):
     else:
         form = ContactForm() # An unbound form
 
+    # ?? wtf, shouldn't be an absolute directory
     return render(request, '/absolute/direcotry/to/contact.html', {'form': form})
